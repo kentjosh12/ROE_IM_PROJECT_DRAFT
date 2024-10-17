@@ -1,10 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./src/config/db');
+const db = require('../src/config/db');
 const cors = require('cors');
 
 const app = express();
-const PORT = 8081;
 
 // CORS configuration to allow your frontend's URL
 const corsOptions = {
@@ -62,6 +61,5 @@ app.get('/test-db', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// Export the app as a serverless function
+module.exports = app;
